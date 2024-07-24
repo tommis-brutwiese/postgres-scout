@@ -26,11 +26,11 @@ In short: make it easy and fun for me to understand the data.
 
 ## Steps
 
-1. Application hull (rust hello world) OK
-2. License POSTPONED
+1. Application hull (rust hello world) `OK`
+2. License `POSTPONED UNTIL NEEDED`
 3. Build Pipeline first:
-   1. Build targets locally
-   2. Build target via docker based builder (Debian)
+   1. Build targets locally `OK`
+   2. Build target via docker based builder `OK`(Debian)
 4. Security
    1. Create software bill of materials (SBOM)
    2. Create security scoring for used dependencies
