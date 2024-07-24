@@ -26,8 +26,8 @@ In short: make it easy and fun for me to understand the data.
 
 ## Steps
 
-1. Application hull (rust hello world)
-2. License
+1. Application hull (rust hello world) OK
+2. License POSTPONED
 3. Build Pipeline first:
    1. Build targets locally
    2. Build target via docker based builder (Debian)
@@ -46,5 +46,6 @@ In short: make it easy and fun for me to understand the data.
    1. Build
    2. Test 
 8. Initial version: copy from [desktop-gui-dingo (tauri-postgres)](https://github.com/tommis-dojo/desktop-gui-dingo), while reviewing sourcecode
+9. Company internal (if needed): see [registry](doc/registry.md)
 
 
