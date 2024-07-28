@@ -32,8 +32,8 @@ In short: make it easy and fun for me to understand the data.
    1. Build targets locally `OK`
    2. Build target via docker based builder `OK`(Debian)
 4. Security
-   1. Create software bill of materials (SBOM)
-   2. Create security scoring for used dependencies
+   1. Create software bill of materials (SBOM) `OK` (done for rust and npm - missing docker)
+   2. Create security scoring for used dependencies `SKIP`
 5. Testing
    1. Run tests for components
    2. Run tests for application (initially just empty hull)

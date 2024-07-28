@@ -15,6 +15,23 @@ run-in-container:
 	#
 	# Note: missing cleanup of image?
 
+.PHONY: sbom-rust
+sbom-rust:
+	# Installation:
+	# cargo install cargo-cyclonedx
+	# 
+	# Must then be run from directory containing Cargo.toml
+	cd src-tauri && cargo cyclonedx && realpath *.cdx.xml
+
+.PHONY: sbom-npm
+sbom-npm:
+	# Installation:
+	# npm install --global @cyclonedx/cyclonedx-npm
+	#
+	# Note: requires a package.json - so does not work yet
+	#
+	cyclonedx-npm > postgres-scout-npm.cdx.xml
+
 TARGETOS := debian
 VERSION := bullseye
 BUILDIMAGE := $(APPNAME):$(TARGETOS)-$(VERSION)
