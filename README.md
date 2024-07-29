@@ -35,7 +35,7 @@ In short: make it easy and fun for me to understand the data.
    1. Create software bill of materials (SBOM) `OK` (done for rust and npm - missing docker)
    2. Create security scoring for used dependencies `SKIP`
 5. Testing
-   1. Run tests for components
+   1. Run tests for components (`OK`)
    2. Run tests for application (initially just empty hull)
 6. Documentation
    1. Building

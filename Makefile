@@ -32,6 +32,10 @@ sbom-npm:
 	#
 	cyclonedx-npm > postgres-scout-npm.cdx.xml
 
+.PHONY: test
+test:
+	cd src-tauri && cargo test
+
 TARGETOS := debian
 VERSION := bullseye
 BUILDIMAGE := $(APPNAME):$(TARGETOS)-$(VERSION)
