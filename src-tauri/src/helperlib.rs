@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 pub fn plus(a: i32, b: i32) -> i32 {
     a + b
 }
