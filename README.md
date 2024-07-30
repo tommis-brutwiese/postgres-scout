@@ -35,17 +35,30 @@ In short: make it easy and fun for me to understand the data.
    1. Create software bill of materials (SBOM) `OK` (done for rust and npm - missing docker)
    2. Create security scoring for used dependencies `SKIP`
 5. Testing
-   1. Run tests for components (`OK`)
+   1. Run tests for components `OK`
    2. Run tests for application (initially just empty hull)
 6. Documentation
-   1. Building
-   2. Running
-   3. Testing
-   4. Architecture
+   1. Building `OK`
+   2. Running `OK`
+   3. Testing `OK`
+   4. Architecture `SKIP` (not needed until tauri application exists)
 7. Enhance application hull to tauri application hull
    1. Build
    2. Test 
 8. Initial version: copy from [desktop-gui-dingo (tauri-postgres)](https://github.com/tommis-dojo/desktop-gui-dingo), while reviewing sourcecode
 9. Company internal (if needed): see [registry](doc/registry.md)
 
+## Quickstart
 
+Show available tasks:
+
+    make
+
+To simply build and run the software in development mode locally:
+
+    make run
+
+## Additional information
+
+* [Building and running](doc/build-and-run.md): how to build for production, building for debian, inside a container, etc.
+* [Testing](doc/testing.md): Running the tests

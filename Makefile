@@ -1,5 +1,10 @@
 APPNAME := postgres-scout
 
+.PHONY: help
+help:
+	@echo Targets:
+	@grep -E '^[a-zA-Z0-9\-]*\:' Makefile | sed 's/^\(.*\): *\(.*\)/\* \1/'
+
 .PHONY: run
 run:
 	cd src-tauri && cargo run dev
@@ -58,3 +63,4 @@ build-debian-executable:
 clean:
 	cd src-tauri && cargo clean
 	rm -rf target
+	rm -f *.cdx.xml
