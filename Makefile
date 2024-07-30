@@ -13,6 +13,10 @@ run:
 build:
 	cd src-tauri && cargo build --release
 
+.PHONY: test
+test:
+	cd src-tauri && cargo test
+
 .PHONY: run-in-container
 run-in-container:
 	# Build and run application (as server application) inside a docker container
@@ -37,10 +41,6 @@ sbom-npm:
 	#
 	cyclonedx-npm > postgres-scout-npm.cdx.xml
 
-.PHONY: test
-test:
-	cd src-tauri && cargo test
-
 TARGETOS := debian
 VERSION := bullseye
 BUILDIMAGE := $(APPNAME):$(TARGETOS)-$(VERSION)
@@ -48,19 +48,43 @@ CONTAINER := $(APPNAME)-$(TARGETOS)-$(VERSION)
 TARGETDIR := target/bin/$(TARGETOS)/$(VERSION)
 TARGETFILE := $(TARGETDIR)/$(APPNAME)
 
-.PHONY: build-debian-executable
-build-debian-executable:
+.PHONY: debian-executable-builder
+debian-executable-builder:
+	# Build executable inside image and
+	# a second image to run it
+
 	cd src-tauri && docker build -t $(BUILDIMAGE) -f Dockerfile.$(TARGETOS) --build-arg DEBIAN_VERSION=$(VERSION) .
+
+.PHONY: debian-executable-create
+debian-executable-create: debian-executable-builder
+	
+	# Extract executable from inside container
+
 	docker container create --name $(CONTAINER) $(BUILDIMAGE)
 	mkdir -p $(TARGETDIR)
 	docker cp $(CONTAINER):bin/server $(TARGETFILE)
 	docker container rm $(CONTAINER)
-	docker image rm $(BUILDIMAGE)
+
 	@echo Resulting binary file:
 	@ls -l $(TARGETFILE)
 
+.PHONY: debian-executable-run-in-container
+debian-executable-run-in-container: debian-executable-builder
+	docker container run --rm --name $(CONTAINER) $(BUILDIMAGE)
+
+.PHONY: debian-executable-builder-rm
+debian-executable-builder-rm:
+	docker image rm $(BUILDIMAGE)
+
 .PHONY: clean
-clean:
+clean: debian-executable-builder-rm
 	cd src-tauri && cargo clean
 	rm -rf target
 	rm -f *.cdx.xml
+
+.PHONY: all
+all: help run build test\
+		run-in-container sbom-rust\
+		debian-executable-create debian-executable-run-in-container\
+		clean
+	# skip: sbom-npm
