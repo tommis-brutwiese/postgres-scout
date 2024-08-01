@@ -76,6 +76,10 @@ debian-executable-run-in-container: debian-executable-builder
 debian-executable-builder-rm:
 	docker image rm $(BUILDIMAGE)
 
+.PHONY: icon
+icon:
+	cd src-tauri && cargo tauri icon fernrohr.png
+
 .PHONY: clean
 clean: debian-executable-builder-rm
 	cd src-tauri && cargo clean
