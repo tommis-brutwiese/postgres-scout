@@ -31,4 +31,3 @@ To run the software inside a docker-compose:
 To build a debian executable using a container:
 
     make debian-executable-create
-

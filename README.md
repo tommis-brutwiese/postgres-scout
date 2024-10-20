@@ -18,11 +18,11 @@ In short: make it easy and fun for me to understand the data.
 
 ### Do what
 
-* Opinionated database browser with automatic helpers
-* Secondarily, be transparent
-* Nice but simple UI
-* Mac, Linux, Win
-* Proactive Automagical or Each action user mandated? Proactive Automagical!
+- Opinionated database browser with automatic helpers
+- Secondarily, be transparent
+- Nice but simple UI
+- Mac, Linux, Win
+- Proactive Automagical or Each action user mandated? Proactive Automagical!
 
 ## Steps
 
@@ -44,7 +44,7 @@ In short: make it easy and fun for me to understand the data.
    4. Architecture `SKIP` (not needed until tauri application exists)
 7. Enhance application hull to tauri application hull
    1. Build
-   2. Test 
+   2. Test
 8. Initial version: copy from [desktop-gui-dingo (tauri-postgres)](https://github.com/tommis-dojo/desktop-gui-dingo), while reviewing sourcecode
 9. Company internal (if needed): see [registry](doc/registry.md)
 
@@ -60,5 +60,5 @@ To simply build and run the software in development mode locally:
 
 ## Additional information
 
-* [Building and running](doc/build-and-run.md): how to build for production, building for debian, inside a container, etc.
-* [Testing](doc/testing.md): Running the tests
+- [Building and running](doc/build-and-run.md): how to build for production, building for debian, inside a container, etc.
+- [Testing](doc/testing.md): Running the tests
