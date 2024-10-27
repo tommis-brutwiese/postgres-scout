@@ -58,6 +58,14 @@ To simply build and run the software in development mode locally:
 
     make run
 
+## Command line options
+
+```
+--gui=0  # run without gui
+--gui=1  # run with gui (default)
+```
+
+
 ## Additional information
 
 - [Building and running](doc/build-and-run.md): how to build for production, building for debian, inside a container, etc.

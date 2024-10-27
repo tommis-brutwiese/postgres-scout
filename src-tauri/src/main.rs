@@ -1,6 +1,8 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
+mod util;
+
 fn run_tauri_gui() -> Result<(), tauri::Error> {
     tauri::async_runtime::set(tokio::runtime::Handle::current());
     let res = tauri::Builder::default().run(tauri::generate_context!());
@@ -9,7 +11,13 @@ fn run_tauri_gui() -> Result<(), tauri::Error> {
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error + Send>> {
-    let res = run_tauri_gui();
+    let res = if util::get_run_gui() {
+        util::log("main", "starting gui");
+        run_tauri_gui()
+    } else {
+        util::log("main", "skip starting gui");
+        Ok(())
+    };
 
     match res {
         Ok(_) => Ok(()),
