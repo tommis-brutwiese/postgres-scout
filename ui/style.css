@@ -1,0 +1,204 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color: #0f0f0f;
+  background-color: #cfcfff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* General */
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: magenta;
+  margin: 0;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+h1,
+h2,
+h3 {
+  background-color: #38a2ff;
+  padding: 0.5em;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+header,
+footer {
+  display: none;
+  overflow: hidden;
+  flex-shrink: 0;
+  color: white;
+  padding: 1em;
+}
+
+header {
+  padding-left: 2vw;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+nav {
+  width: 25vw;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+
+main {
+  box-sizing: border-box;
+  flex: 1 0 auto;
+  flex-shrink: 1.1;
+}
+
+.component {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: white;
+  padding: 10px;
+}
+
+.component-header,
+.component-footer {
+  padding: 10px;
+}
+
+.component-main {
+  overflow-y: auto;
+  flex: 1 1 auto;
+  padding: 10px;
+}
+
+/* General types */
+
+.header-content {
+  background-color: mediumseagreen;
+  color: white;
+}
+
+.footer-content {
+  background-color: mediumseagreen;
+  color: white;
+}
+
+.nav-content {
+  background-color: black;
+  color: white;
+  padding-top: 4em;
+}
+
+nav li {
+  padding: 0.3em 0.3em 0.2em 1em;
+}
+
+nav li.nav-selected {
+  background-color: #01447e;
+  color: white;
+  font-weight: bold;
+}
+
+.primary-content {
+  background-color: white;
+  color: black;
+}
+
+.secondary-content {
+  background-color: lightgrey;
+  color: black;
+}
+
+/* Individual components */
+
+.hidden {
+  display: none;
+}
+
+#context {
+  display: none;
+}
+
+nav ul {
+  list-style: none;
+}
+
+.js-error-info {
+  background-color: lightcoral;
+}
+
+/* Links */
+
+.link:hover {
+  cursor: pointer;
+  color: #01447e;
+  background-color: aqua;
+}
+
+/* Table */
+
+table {
+  border-spacing: 0;
+}
+
+th,
+td {
+  border: 1px solid black;
+  border-right-width: 0;
+  border-bottom-width: 0;
+  padding: 5px;
+  margin: 0;
+}
+
+td:nth-last-child(1) {
+  border-right-width: 1px;
+}
+tr:nth-last-child(1) td {
+  border-bottom-width: 1px;
+}
+
+th {
+  background-color: black;
+}
+
+th {
+  color: #cfcfcf;
+}
+
+tr:nth-child(even) {
+  background-color: darkgray;
+}
+tr:nth-child(odd) {
+  background-color: lightgray;
+}
+
+td .Text {
+  background-color: white;
+}
+
+td .Text {
+  background-color: white;
+}
