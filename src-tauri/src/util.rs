@@ -67,8 +67,12 @@ pub fn get_run_gui() -> bool {
     get_arg_bool(ARG_RUN_GUI, true)
 }
 
-pub fn log(source: &str, message: &str) {
+pub fn log_info(source: &str, message: &str) {
     println!("{source}: {message}");
+}
+
+pub fn log_error(source: &str, message: &str) {
+    println!("{source}: ERROR: {message}");
 }
 
 pub mod commands {
@@ -77,7 +81,7 @@ pub mod commands {
     #[tauri::command]
     pub async fn get_autoclose_after_init() -> bool {
         let autoclose = super::get_arg_bool(ARG_AUTOCLOSE_AFTER_INIT, false);
-        super::log(
+        super::log_info(
             String::from("command-line-options").as_str(),
             format!("{}: {}", ARG_AUTOCLOSE_AFTER_INIT, autoclose).as_str(),
         );
