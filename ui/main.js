@@ -7,7 +7,6 @@
 const { invoke } = window.__TAURI__.tauri;
 const { exit } = window.__TAURI__.process;
 
-
 import { initNavigation, selectComponent } from "./navigation.js";
 
 async function onEndInit() {
