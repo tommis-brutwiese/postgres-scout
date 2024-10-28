@@ -15,8 +15,8 @@
     <div class="content">
       <nav class="nav-content">
         <ul>
-          <li class="nav link db">Platzhalter A</li>
-          <li class="nav link connectors">Platzhalter B</li>
+          <li class="nav link db">Datenbankbrowser</li>
+          <li class="nav link connectors">Konnektoren</li>
           <li class="nav link about">Über</li>
         </ul>
       </nav>
@@ -35,13 +35,67 @@
         </div>
 
         <div class="component connectors">
-          <h2>Platzhalter B</h2>
+          <h2>Datenbank-Verbindung</h2>
+          <p>
+            Verbindungsstring:
+            <input
+              type="text"
+              class="connection-string"
+              placeholder="connecting"
+              size="50"
+              spellcheck="false"
+            />
+          </p>
+          <p>
+            <button class="connection-test" type="button">Prüfen</button>
+            <span class="connection-result"></span>
+          </p>
+          <p>
+            <button class="connection-select" type="button">Übernehmen</button>
+            <span class="connection-select-confirm"></span>
+          </p>
+          <!--
+                <tr>
+                  <td>Anfrage</td>
+                  <td><input class="custom-query" placeholder="select 123 as a;" spellcheck="false"/></td>
+                </tr>
+                <tr>
+                  <td>table</td><td><input class="table" placeholder="table" spellcheck="false"/></td>
+                </tr>
+              -->
         </div>
 
         <div class="component db">
-          <h2>Platzhalter A</h2>
-        </div>
+          <div class="component-header secondary-content">
+            <ul id="breadcrumbs" class="breadcrumb"></ul>
+            <p class="custom-sql">
+              SQL-Anfrage&emsp;<input
+                class="sql-query"
+                type="text"
+                placeholder="&lt;SQL&gt;"
+                spellcheck="false"
+              />&emsp; verwendet&nbsp;Datenbank&nbsp;<input
+                class="database"
+                type="text"
+                placeholder="&lt;Datenbank&gt;"
+                spellcheck="false"
+              />
+            </p>
+          </div>
 
+          <div class="component-main primary-content">
+            <div id="db-table">
+              <table>
+                <!--
+                <tr><th>Column</th><th>Column</th></tr>
+                <tr><td>row</td><td>row</td></tr>
+              --></table>
+            </div>
+          </div>
+          <div class="component-footer secondary-content">
+            <p id="statusbar">Statusbar</p>
+          </div>
+        </div>
         <div id="context">
           <ul>
             <li>bla a</li>

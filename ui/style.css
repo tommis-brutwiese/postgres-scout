@@ -83,6 +83,19 @@ main {
   padding: 10px;
 }
 
+/* Preliminary specialization*/
+.component.db {
+  padding: 0;
+}
+
+.component.db p.custom-sql {
+  padding: 1em 0 0;
+}
+
+.component.connectors input {
+  margin-left: 2em;
+}
+
 .component-header,
 .component-footer {
   padding: 10px;
@@ -148,6 +161,37 @@ nav ul {
 
 .js-error-info {
   background-color: lightcoral;
+}
+
+/* Breadcrumbs */
+
+ul.breadcrumb {
+  list-style: none;
+}
+
+ul.breadcrumb li {
+  display: inline;
+  padding: 3px 3px;
+  margin: 0;
+  text-decoration: none;
+}
+
+ul.breadcrumb li.breadcrumb_separator {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+ul.breadcrumb li.link {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  color: #0275d8;
+}
+
+ul.breadcrumb li.link:hover {
+  color: #01447e;
+  background-color: aqua;
 }
 
 /* Links */
