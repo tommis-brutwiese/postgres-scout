@@ -5,7 +5,11 @@ mod util;
 
 fn run_tauri_gui() -> Result<(), tauri::Error> {
     tauri::async_runtime::set(tokio::runtime::Handle::current());
-    let res = tauri::Builder::default().run(tauri::generate_context!());
+    let res = tauri::Builder::default()
+        .invoke_handler(tauri::generate_handler![
+            util::commands::get_autoclose_after_init
+        ])
+        .run(tauri::generate_context!());
     res
 }
 

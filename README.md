@@ -60,11 +60,29 @@ To simply build and run the software in development mode locally:
 
 ## Command line options
 
+### Run with or without GUI
+
+Run the application without GUI.
+
 ```
 --gui=0  # run without gui
 --gui=1  # run with gui (default)
 ```
 
+### Close application automatically after open
+
+The GUI and application is closed automatically shortly after start. This is
+intended for testing purposes and automation, e.g. when running the
+application from the build process.
+
+```
+--autoclose-after-init    # gui closes automatically after init
+--autoclose-after-init=1  # gui closes automatically after init
+--autoclose-after-init=0  # gui stays open (default behavior)
+```
+
+Note that at time of writing, this only works if the application is run in
+GUI mode.
 
 ## Additional information
 

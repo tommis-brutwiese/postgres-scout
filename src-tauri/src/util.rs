@@ -4,6 +4,7 @@ use std::env::args;
 ///
 /// but this is for my amusement and fun, so I choose to do it manually.
 
+const ARG_AUTOCLOSE_AFTER_INIT: &str = "--autoclose-after-init";
 const ARG_RUN_GUI: &str = "--gui";
 
 use std::collections::HashMap;
@@ -68,4 +69,18 @@ pub fn get_run_gui() -> bool {
 
 pub fn log(source: &str, message: &str) {
     println!("{source}: {message}");
+}
+
+pub mod commands {
+    use super::ARG_AUTOCLOSE_AFTER_INIT;
+
+    #[tauri::command]
+    pub async fn get_autoclose_after_init() -> bool {
+        let autoclose = super::get_arg_bool(ARG_AUTOCLOSE_AFTER_INIT, false);
+        super::log(
+            String::from("command-line-options").as_str(),
+            format!("{}: {}", ARG_AUTOCLOSE_AFTER_INIT, autoclose).as_str(),
+        );
+        autoclose
+    }
 }
