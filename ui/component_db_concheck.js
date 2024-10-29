@@ -1,17 +1,14 @@
-
 /** Connectivity check for database
  *
  * Contains both backend calls and DOM manipulation.
  *
  */
 
-
 import { callBackend } from "./bridge_frontend_backend.js";
 import { onEnterRun } from "./common_ui.js";
 import { useConnectionString } from "./component_db_browser.js"; /* should be part of browsers interface */
 import { dbFullRequest } from "./registry.js";
 import { selectComponent } from "./navigation.js";
-
 
 import {
   createQueryFromPathElements,

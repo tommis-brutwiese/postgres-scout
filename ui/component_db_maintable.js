@@ -5,11 +5,10 @@ let dbTable;
 
 export function getDbTable() {
   if (!dbTable) {
-    dbTable = document.querySelector("#db-table table");    
+    dbTable = document.querySelector("#db-table table");
   }
   return dbTable;
 }
-
 
 function determineCellFunctionality(cellData, fullQuery) {
   let cellType = Object.keys(cellData)[0];
@@ -75,7 +74,6 @@ function insertCellData(domCell, cellInfo) {
 
 export function replaceTableContents(table, lastQuery) {
   if (table) {
-
     // Clear old table contents
     let num_rows = getDbTable().rows.length;
 

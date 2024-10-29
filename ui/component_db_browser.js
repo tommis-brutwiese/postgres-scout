@@ -19,7 +19,11 @@ import {
   toPathItems,
   getConnectionStringFromFullQuery,
 } from "./backend_adapter_db.js";
-import { createFullQuery, createCustomQuery, createQueryFromPathElements } from "./backend_adapter_db.js";
+import {
+  createFullQuery,
+  createCustomQuery,
+  createQueryFromPathElements,
+} from "./backend_adapter_db.js";
 
 import {
   register_dbFullRequest,
@@ -43,7 +47,6 @@ function getCustomDatabase() {
   return customDatabase;
 }
 
-
 // The only global variable that keeps a value? Perhaps get rid of it?
 let globalConnectionString;
 
@@ -55,7 +58,6 @@ function getGlobalConnectionString() {
   return globalConnectionString;
 }
 
-
 /** Will run a query to the database and process results (including DOM manipulation)
  *
  * @param fullQuery containing connection and specific query
@@ -66,7 +68,6 @@ export async function dbFullRequest(fullQuery) {
     .then((queryResult) => {
       let tableResult = queryResult.table;
       if (Object.hasOwn(tableResult, "Ok")) {
-
         getCustomSqlQuery().value = queryResult.sql_query.replace(/\s+/g, " ");
         getCustomSqlQuery().size = getCustomSqlQuery().value.length;
         if (queryResult.database !== null) {
@@ -120,7 +121,6 @@ async function runCustomQuery() {
   );
 }
 
-
 export function initEventsForCustomQuery() {
   getCustomSqlQuery().addEventListener("keyup", (event) => {
     onEnterRun(event, runCustomQuery);
@@ -137,4 +137,3 @@ export function registerDatabaseBrowserFunctions() {
   register_dbFullRequest(dbFullRequest);
   register_dbRequestFromPathElements(dbRequestFromPathElements);
 }
-
