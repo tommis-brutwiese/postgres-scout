@@ -35,7 +35,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.postgres-scout",
+      "identifier": "com.postgres-scout.dev",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
