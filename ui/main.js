@@ -8,6 +8,24 @@ const { invoke } = window.__TAURI__.tauri;
 const { exit } = window.__TAURI__.process;
 
 import { initNavigation, selectComponent } from "./navigation.js";
+import {
+  initialQuery,
+  initEventsForCustomQuery,
+  registerDatabaseBrowserFunctions,
+} from "./component_db_browser.js";
+
+registerDatabaseBrowserFunctions();
+
+import { initEventsForConnectionConfig } from "./component_db_concheck.js";
+
+async function dbInitEvents() {
+  await initEventsForConnectionConfig();
+  await initEventsForCustomQuery();
+}
+
+function initEventFunctions() {
+  dbInitEvents();
+}
 
 async function onEndInit() {
   // Is the programmed configured to close after init has completed?
@@ -34,9 +52,12 @@ function indicateJsOkay() {
 
 window.addEventListener("DOMContentLoaded", () => {
   initNavigation(["db", "connectors", "about"]);
+  initEventFunctions();
+
+  initialQuery(selectComponent);
 
   onEndInit();
-  selectComponent("about");
+  selectComponent("db");
 
   indicateJsOkay();
 });
