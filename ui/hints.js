@@ -2,7 +2,7 @@
 
 // How to invoke a rust function
 
-const { invoke } = window.__TAURI__.tauri;
+const { invoke } = window.__TAURI__.core;
 let query = await invoke("suggest_query", {});
 invoke("db_query", { query: query })
   .then((message) => {

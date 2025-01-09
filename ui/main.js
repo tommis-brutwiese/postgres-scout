@@ -4,7 +4,7 @@
 
 /* For debugging hints : see hints.js */
 
-const { invoke } = window.__TAURI__.tauri;
+const { invoke } = window.__TAURI__.core;
 const { exit } = window.__TAURI__.process;
 
 import { initNavigation, selectComponent } from "./navigation.js";
@@ -36,6 +36,10 @@ async function onEndInit() {
   let autoclose = await invoke("get_autoclose_after_init", {});
   if (autoclose) {
     setTimeout(() => {
+      /**
+       * Note the following is not a clean shutdown.
+       * A better option might be to shut down cleanly from backend.
+       */
       exit(0);
     }, 500);
   }

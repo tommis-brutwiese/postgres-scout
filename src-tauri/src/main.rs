@@ -12,6 +12,7 @@ fn run_tauri_gui(
 ) -> Result<(), tauri::Error> {
     tauri::async_runtime::set(tokio::runtime::Handle::current());
     let res = tauri::Builder::default()
+        .plugin(tauri_plugin_process::init())
         .manage(db::types::StateHalfpipeToDb::from(channel_to_db_tx))
         .manage(db::types::StateHalfpipeToTauri::from(channel_to_tauri_rx))
         .invoke_handler(tauri::generate_handler![
